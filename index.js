@@ -22,13 +22,14 @@ class Polygon {
 class Triangle extends Polygon {
        
     get isValid() {
-        let x = this.numArray[0];
-        let y = this.numArray[1];
-        let z = this.numArray[2];
+     
+        const sorted = this.numArray.sort(function(a, b){return a - b});
+        const sumOfSmallest = sorted[0] + sorted[1];
+        const smallest = sorted[2];
 
-        if(x + y > z) {
+        if(sumOfSmallest > smallest ){
             return true;
-        }  else {
+        } else {
             return false;
         }
      
@@ -42,12 +43,12 @@ class Square extends Polygon {
         const result = this.numArray.every(num => {
            
             if (num === this.numArray[0]) {
-                
               return true;
             } else {
                 return false;
             }
         })
+        return result;
        
 }
 
